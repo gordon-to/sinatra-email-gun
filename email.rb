@@ -17,5 +17,5 @@ post '/email-form' do
     :from => @payload['from'],
     :subject => @payload['subject'],
     :body => @payload['body'])
-  "email sent to #{@payload['email']}"
+  "email sent to #{@payload['to']} cc #{@payload['cc']} from #{@payload['from']}"
 end
