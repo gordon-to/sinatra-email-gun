@@ -12,8 +12,9 @@ set :port, 6789
 post '/email-form' do 
   @payload = JSON.parse(request.body.read)
   Pony.mail(
-    :to => @payload['email'],
-    :from => @payload['sender'],
+    :to => @payload['to'],
+    :cc => @payload['cc'],
+    :from => @payload['from'],
     :subject => @payload['subject'],
     :body => @payload['body'])
   "email sent to #{@payload['email']}"
